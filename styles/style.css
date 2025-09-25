@@ -1,0 +1,265 @@
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #cfc4c4;
+  --accent: #4fd1c5;
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-border: rgb(255 255 255 / 69%);
+  --text: #e6eef6;
+  --br: #4cafef;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  background: #0f1724;
+  overflow: hidden;
+  color: var(--text);
+  padding: 0;
+  font-size: large;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  background-image: radial-gradient(2px 2px at 20px 30px, #4fd1c5, transparent),
+    radial-gradient(2px 2px at 40px 70px, #4cafef, transparent),
+    radial-gradient(2px 2px at 50px 160px, #4fd1c5, transparent),
+    radial-gradient(2px 2px at 90px 40px, #4cafef, transparent),
+    radial-gradient(2px 2px at 130px 80px, #4fd1c5, transparent);
+  background-size: 200px 200px;
+  animation: moveStars 30s linear infinite;
+}
+
+@keyframes moveStars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1000px 1000px;
+  }
+}
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--br);
+  margin-bottom: 20px;
+}
+
+#welcomeText {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.quote {
+  font-size: 1.2rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.form {
+  background-color: var(--card);
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px var(--glass);
+  border: 1px solid var(--glass-border);
+}
+
+.input {
+  padding: 12px;
+  border: 1px solid var(--br);
+  border-radius: 8px;
+  flex: 1;
+  background-color: var(--glass);
+  color: var(--text);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.add {
+  border: none;
+  background-color: var(--accent);
+  color: var(--bg);
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.add:hover {
+  background-color: var(--br);
+  color: var(--text);
+}
+
+.tasks {
+  background-color: var(--card);
+  margin-top: 20px;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px var(--glass);
+  border: 1px solid var(--glass-border);
+}
+
+.tasks .task {
+  background-color: var(--accent);
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid var(--br);
+  color: var(--bg);
+}
+
+.tasks .task:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.tasks .task:hover {
+  opacity: 0.9;
+}
+
+.tasks .task.done {
+  background-color: var(--muted);
+  border: 1px solid var(--glass-border);
+  opacity: 0.5;
+  text-decoration: line-through;
+  color: black;
+}
+
+.tasks .task span {
+  font-weight: bold;
+  font-size: 12px;
+  background-color: var(--br);
+  color: var(--text);
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tasks .task span:hover {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+  .form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .add {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    padding: 10px;
+  }
+  .input {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .add {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .tasks {
+    padding: 15px;
+  }
+  .tasks .task {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+.auth-container {
+  background-color: var(--card);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--glass);
+  border: 1px solid var(--glass-border);
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-container input {
+  padding: 12px;
+  border: 1px solid var(--br);
+  border-radius: 8px;
+  background-color: var(--glass);
+  color: var(--text);
+  font-size: 16px;
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.auth-container button {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-container button:hover {
+  background: var(--br);
+  color: var(--text);
+}
+
+.auth-container p {
+  margin-top: 15px;
+  color: var(--muted);
+}
+
+.auth-container a {
+  color: var(--accent);
+  text-decoration: none;
+}
